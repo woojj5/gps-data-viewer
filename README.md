@@ -53,14 +53,15 @@ scan_all_csv_and_preprocess(root_dir, data_type)
 | `plot_device_corr()`                            | 장치별 평균 속도-총 거리 상관             |
 | `plot_monthly_speed_dist_corr()`                | 월별 속도-이동거리 상관 변화              |
 
-📂 디렉터리 구조 예시
 gps-preprocessing-pipeline/
 │
 ├── data/                         # 입력 GPS 데이터 디렉터리
 │   ├── 2023-01/                  # (예시) 월별 폴더
 │   │   ├── gps_log_01.csv        # GPS 로그 CSV 파일
 │   │   └── ...                   # 기타 로그 파일들
-    └── aicar_cartype_list.csv    # 장치별 차종 정보 테이블
+│   └── aicar_cartype_list.csv    # 장치별 차종 정보 테이블
+│
+
 
 🧩 TODO
 이상치 탐지 로직 고도화
