@@ -20,8 +20,6 @@ pip install -r requirements.txt
 🔧 폰트 설정
 한글 시각화를 위해 Malgun Gothic 폰트를 자동 설정하며, tkinter 기본 폰트도 함께 사용됩니다.
 
----
-
 🚀 사용 방법
 분석할 GPS CSV 파일들을 하위 폴더에 구성
 
