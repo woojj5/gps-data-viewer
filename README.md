@@ -53,9 +53,6 @@ scan_all_csv_and_preprocess(root_dir, data_type)
 | `plot_device_corr()`                            | 장치별 평균 속도-총 거리 상관             |
 | `plot_monthly_speed_dist_corr()`                | 월별 속도-이동거리 상관 변화              |
 
-📁 모든 시각화 결과(.png) 및 요약 통계(.csv)는 outputs/ 폴더에 자동 저장됩니다.
-⏱️ 각 plot은 일정 시간 후 자동 종료됩니다.
-
 📂 디렉터리 구조 예시
 gps-preprocessing-pipeline/
 │
