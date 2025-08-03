@@ -86,18 +86,19 @@ gps-preprocessing-pipeline/
 ├── data/
 │   ├── 2023-01/
 │   │   ├── gps_log_01.csv
-│   │   └── ...
-│   └── aicar_cartype_list.csv
+│   │   └── ...                # 추가 GPS 로그 파일들
+│   └── aicar_cartype_list.csv # 장치별 차종 정보 CSV
 │
-├── outputs/
-│   ├── images/
-│   ├── stats/
-│   └── logs/
+├── outputs/                   # 분석 결과 저장 폴더
+│   ├── images/               # 시각화 이미지 (.png)
+│   ├── stats/                # 요약 통계 및 상관계수 (.csv)
+│   └── logs/                 # 실행 로그
 │
-├── main.py
-├── preprocessing.py
-├── visualization.py
-└── README.md
+├── main.py                   # 메인 실행 스크립트
+├── preprocessing.py          # 데이터 전처리 함수 모듈
+├── visualization.py          # 시각화 함수 모듈
+└── README.md                 # 프로젝트 설명 파일
+
 
 
 ---
