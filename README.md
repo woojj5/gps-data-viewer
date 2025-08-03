@@ -28,6 +28,8 @@ pip install -r requirements.txt
 
 ✅ 데이터 전처리 및 유틸리티 함수
 
+---
+
 haversine(lat1, lon1, lat2, lon2)
 → 두 GPS 좌표 간 거리(km) 계산
 
@@ -43,6 +45,7 @@ scan_all_csv_and_preprocess(root_dir, data_type)
 
 → 인코딩 처리 및 예외 처리 포함
 
+---
 
 📊 시각화 및 분석 함수
 
@@ -58,6 +61,7 @@ scan_all_csv_and_preprocess(root_dir, data_type)
 | `plot_device_corr()`                            | 장치별 평균 속도-총 거리 상관             |
 | `plot_monthly_speed_dist_corr()`                | 월별 속도-이동거리 상관 변화              |
 
+---
 
 🧩 TODO
 이상치 탐지 로직 고도화
@@ -65,5 +69,3 @@ scan_all_csv_and_preprocess(root_dir, data_type)
 실시간 스트리밍 데이터 대응
 
 GUI 기반 리포트 뷰어 기능 추가
-
-
