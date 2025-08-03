@@ -52,20 +52,31 @@ scan_all_csv_and_preprocess(root_dir, data_type):
 
 📊 시각화 및 분석 함수
 함수명	설명
+
 plot_gps_monthly_distance()	월별 누적 주행거리 타임라인
+
 plot_top_devices_by_distance()	누적거리 기준 상위 20대 장치 바 플롯
+
 plot_month_device_heatmap()	월 × 장치 데이터 빈도 히트맵
+
 plot_speed_distribution()	전체 속도 분포 히스토그램
+
 plot_confusion_matrix_speed_stop_by_cartype()	차종별 정지/운행 판별 confusion matrix
+
 plot_hourly_distribution()	시간대별 기록 분포
+
 plot_correlation_heatmap()	주요 특성 간 상관계수 히트맵
+
 plot_violin_stopped_diff()	정지여부별 violin plot
+
 plot_device_corr()	장치별 평균 속도 - 총 거리 상관
+
 plot_monthly_speed_dist_corr()	월별 속도-이동거리 상관 변화
 
 ---
 
 📁 모든 이미지(.png) 및 요약 통계(.csv)는 지정 폴더에 자동 저장됩니다.
+
 ⏱️ 자동 저장 후 일정 시간이 지나면 창은 자동 종료됩니다.
 
 ---
