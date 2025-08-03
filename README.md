@@ -54,6 +54,7 @@ scan_all_csv_and_preprocess(root_dir, data_type)
 | `plot_monthly_speed_dist_corr()`                | 월별 속도-이동거리 상관 변화              |
 
 gps-preprocessing-pipeline/
+yaml
 ├── data/
 │   ├── 2023-01/
 │   │   ├── gps_log_01.csv
