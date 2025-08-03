@@ -49,16 +49,8 @@ scan_all_csv_and_preprocess(root_dir, data_type)
 | `plot_confusion_matrix_speed_stop_by_cartype()` | 차종별 정지/운행 판별 confusion matrix |
 | `plot_hourly_distribution()`                    | 시간대별 기록 분포                    |
 | `plot_correlation_heatmap()`                    | 주요 특성 간 상관계수 히트맵              |
-| `plot_violin_stopped_diff()`                    | 정지 여부에 따른 violin plot         |
 | `plot_device_corr()`                            | 장치별 평균 속도-총 거리 상관             |
 | `plot_monthly_speed_dist_corr()`                | 월별 속도-이동거리 상관 변화              |
-
-gps-preprocessing-pipeline/
-├── data/
-│   ├── 2023-01/
-│   │   ├── gps_log_01.csv
-│   │   └── ...
-│   └── aicar_cartype_list.csv
 
 
 🧩 TODO
