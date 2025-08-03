@@ -29,7 +29,6 @@ aicar_cartype_list.csv (차종 테이블) 포함
 
 ---
 
-🛠️ 주요 함수 및 구조
 ✅ 데이터 전처리 및 유틸리티
 haversine(lat1, lon1, lat2, lon2): 두 지점 간 거리(km) 계산
 
