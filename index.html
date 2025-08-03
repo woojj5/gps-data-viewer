@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS 데이터 분석 결과 (2022-12 ~ 2023-08)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0099f7 0%, #f11712 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .main-container {
+            background: rgba(255,255,255,0.96);
+            border-radius: 20px;
+            box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 980px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #0099f7, #f11712);
+        }
+        .desc-card {
+            background: #f9f9fa;
+            border-left: 5px solid #0099f7;
+            border-radius: 12px;
+            padding: 17px 22px;
+            font-size: 1.08em;
+            margin-bottom: 28px;
+            color: #333;
+        }
+        .desc-card h6 {
+            margin-top: 0;
+        }
+        .image-section {
+            margin-bottom: 28px;
+        }
+        .image-card {
+            background: #fff;
+            border-radius: 13px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+            margin-bottom: 21px;
+            padding: 20px;
+            text-align: center;
+        }
+        .image-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.17);
+        }
+        .caption {
+            margin-top: 14px;
+            color: #444;
+            font-size: 1.08em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="main-container">
+        <div class="header">
+            <h1><i class="fas fa-map-marked-alt"></i> GPS 데이터 분석 결과</h1>
+            <p>2022년 12월부터 2023년 8월까지의 주행 및 상태 데이터 요약</p>
+        </div>
+
+        <!-- CSV 데이터 통계/설명 카드 -->
+        <div class="desc-card">
+            <h6><i class="fas fa-database"></i> CSV 데이터 변수 요약</h6>
+            <ul>
+                <li>최종 데이터 행 수(모든 CSV 병합 기준): <strong>18,337,801</strong></li>
+                <li><strong>전체 칼럼(변수) 수: 21개</strong></li>
+                <li>
+                    <u>주요 변수</u>:  
+                    device_no, time, direction, fuel_pct, hdop, lat, lng, mode, source, speed, state, lat_shift, lng_shift, dist_km, direction_shift, direction_delta, is_stopped, state_cat, mode_cat, measured_ym, hour, car_type
+                </li>
+                <li>
+                    <strong>주요 고유값 수:</strong>
+                    <ul>
+                        <li>device_no(디바이스): 117개</li>
+                        <li>time(타임스탬프): 11,604,341개</li>
+                        <li>lat(위도): 2,209,617개</li>
+                        <li>lng(경도): 2,118,805개</li>
+                        <li>speed(속도): 148종류</li>
+                        <li>hour(시간대): 24개(0~23시)</li>
+                        <li>state(상태): 3개 (Stopped, Moving, Unknown)</li>
+                    </ul>
+                </li>
+                <li>대부분 변수에 결측치 없음(모든 행에 값 존재)</li>
+            </ul>
+        </div>
+
+        <div class="image-section">
+            <div class="image-card">
+                <img src="gps_confusion_matrix_stopped_Unknown.png" alt="Confusion Matrix Stopped">
+                <div class="caption">
+                    <strong>Confusion Matrix (Stopped vs Unknown)</strong><br>
+                    GPS의 'Stopped'(정지) 및 'Unknown'(알 수 없음) 상태를 구분한 Confusion Matrix입니다.<br>
+                    차량 미주행 구간의 위치 분류(판단) 정확도를 직관적으로 평가할 수 있습니다.
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="gps_correlation_matrix.png" alt="Correlation Matrix">
+                <div class="caption">
+                    <strong>상관관계 매트릭스 (Correlation Matrix)</strong><br>
+                    속도, 이동 거리, 방향, 시간대 등 주요 변수 간 상관관계를 요약한 행렬입니다.<br>
+                    전체적으로 상관계수가 0.01 내외로 직접적 연관성이 매우 약함을 알 수 있습니다.
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="gps_device_speed_distance_corr.png" alt="Device-Speed Distance Corr">
+                <div class="caption">
+                    <strong>디바이스별 속도-거리 상관관계</strong><br>
+                    각 기기(device_no)별 평균 속도와 누적 주행 거리의 관계를 분석합니다.<br>
+                    장거리 운행 디바이스일수록 평균 속도가 비교적 더 높게 나타나는 경향이 있습니다.
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="gps_hourly_distribution.png" alt="Hourly Distribution">
+                <div class="caption">
+                    <strong>시간대별 이동량 분포</strong><br>
+                    하루 24시간 기준으로, 시간대별 주행/이동 기록 데이터의 분포를 시각화합니다.<br>
+                    출퇴근 시간대(7~9시, 18~20시)에 이동량이 집중되는 경향이 나타납니다.
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="gps_month_device_heatmap.png" alt="Monthly Device Heatmap">
+                <div class="caption">
+                    <strong>월별 디바이스별 이동량 히트맵</strong><br>
+                    2022년 12월부터 2023년 8월까지, 각 디바이스의 월간 누적 이동량을 색상 히트맵으로 표현한 그래프입니다.<br>
+                    월별로 활동량이 변하지 않고 꾸준한 디바이스는 모든 달에서 비슷한 색상 강도를 보여 일관된 운행 패턴을 확인할 수 있습니다.<br>
+                    반대로, 일부 디바이스는 2023년 3월~5월 사이에만 색이 진해지며 일시적으로 운행이 급증하고, 전후에는 색이 옅어져 활동이 거의 없었던 뚜렷한 변동이 나타납니다.<br>
+                    이처럼 히트맵을 통해 각 차량의 장기적·월별 운행 패턴, 특정 시기의 집중 운행 혹은 중단, 다양한 활동 특성을 한눈에 파악할 수 있습니다.
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="gps_monthly_speed_dist_corr.png" alt="Monthly Speed-Distance Correlation">
+                <div class="caption">
+                    <strong>월별 평균 속도-누적 거리 상관관계</strong><br>
+                    월별로 평균 속도와 전체 누적 주행 거리 간의 상관계수 변화를 보여주며,<br>
+                    모든 월에서 상관계수가 0에 가까워 평균 속도 증감이 총 이동 거리에 큰 영향을 주지 않음을 시사합니다.
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="gps_monthly_total_distance_pretty.png" alt="Monthly Total Distance">
+                <div class="caption">
+                    <strong>월별 전체 누적 주행거리</strong><br>
+                    전체 디바이스의 월별 누적 주행거리 변화.<br>
+                    2022년 12월 약 92만km로 최고치 기록 이후 2023년 중반부터 점진적 감소를 보입니다.
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="gps_speed_distribution.png" alt="Speed Distribution">
+                <div class="caption">
+                    <strong>속도 분포</strong><br>
+                    전체 GPS 데이터의 속도값 분포.<br>
+                    0~20km/h 구간에 데이터가 가장 집중되어 있고, 고속 주행은 상대적으로 적게 분포합니다.
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="gps_top20_device_distance.png" alt="Top 20 Device Distance">
+                <div class="caption">
+                    <strong>상위 20대 디바이스 누적 주행거리</strong><br>
+                    누적 거리 기준으로 상위 20대 차량의 주행 거리 순위를 나타냅니다.<br>
+                    1위 192,487km, 2위 156,685km 등 수십만km 이상 운행한 차량이 나타납니다.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
