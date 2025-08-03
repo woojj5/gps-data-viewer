@@ -14,24 +14,21 @@
 
 ## 📦 설치 및 환경 설정
 
-```bash
 git clone https://github.com/yourusername/gps-preprocessing-pipeline.git
 cd gps-preprocessing-pipeline
 pip install -r requirements.txt
 🔧 폰트 설정
 한글 시각화를 위해 Malgun Gothic 폰트를 자동 설정하며, tkinter 기본 폰트도 함께 사용됩니다.
 
+---
+
 🚀 사용 방법
 분석할 GPS CSV 파일들을 하위 폴더에 구성
 
 aicar_cartype_list.csv (차종 테이블) 포함
 
-아래와 같이 실행:
+---
 
-bash
-복사
-편집
-python main.py --root_dir ./your_gps_data
 🛠️ 주요 함수 및 구조
 ✅ 데이터 전처리 및 유틸리티
 haversine(lat1, lon1, lat2, lon2): 두 지점 간 거리(km) 계산
@@ -52,6 +49,8 @@ scan_all_csv_and_preprocess(root_dir, data_type):
 
 인코딩 처리 및 예외 처리 포함
 
+---
+
 📊 시각화 및 분석 함수
 함수명	설명
 plot_gps_monthly_distance()	월별 누적 주행거리 타임라인
@@ -65,13 +64,17 @@ plot_violin_stopped_diff()	정지여부별 violin plot
 plot_device_corr()	장치별 평균 속도 - 총 거리 상관
 plot_monthly_speed_dist_corr()	월별 속도-이동거리 상관 변화
 
+---
+
 📁 모든 이미지(.png) 및 요약 통계(.csv)는 지정 폴더에 자동 저장됩니다.
 ⏱️ 자동 저장 후 일정 시간이 지나면 창은 자동 종료됩니다.
 
+---
+
 📂 디렉터리 구조 예시
-css
-복사
-편집
+
+---
+
 gps-preprocessing-pipeline/
 │
 ├── data/
@@ -89,10 +92,8 @@ gps-preprocessing-pipeline/
 ├── preprocessing.py
 ├── visualization.py
 └── README.md
-🧩 커스터마이징
-config.py 또는 코드 내 환경설정을 통해 저장 경로, plot delay 시간 등을 조정할 수 있습니다.
 
-필요한 분석 함수는 주석 해제하여 선택적으로 실행 가능합니다.
+---
 
 📌 TODO
 이상치 탐지 고도화
@@ -101,15 +102,10 @@ config.py 또는 코드 내 환경설정을 통해 저장 경로, plot delay 시
 
 GUI 기반 리포트 뷰어 추가
 
+---
+
 📄 라이선스
 MIT License
-
-🙋‍♀️ 기여하기
-이 프로젝트에 기여하고 싶으시다면 이슈 등록 또는 PR 요청을 통해 자유롭게 참여해주세요!
-
-yaml
-복사
-편집
 
 --- 
 
@@ -119,12 +115,3 @@ yaml
 - 성능 비교표 (EDA 시간/파일 수 기준)
 
 수정이나 확장할 부분 있다면 알려주세요!
-
-
-
-
-
-
-
-
-ChatGPT에게 묻기
